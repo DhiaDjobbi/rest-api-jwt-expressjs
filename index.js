@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 
 // import routes
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/posts");
 
 
 dotenv.config();
@@ -18,6 +19,7 @@ mongoose.connect(process.env.DB_CONNECT, () => {
 app.use(express.json());
 
 // api prefix
-app.use("/api", authRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/posts", postRoute);
 
 app.listen(3000, () => console.log("aa server start"));
